@@ -3,17 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مركز الإتقان للمقاولات والتمديدات</title>
-    <!-- استيراد خطوط مميزة وأيقونات -->
+    <title>مركز الإتقان</title>
+    <!-- استيراد الخطوط والأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-family-arabic/1.0.0/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        :root {
-            --primary-color: #0c4a6e; /* أزرق غامق صحي */
-            --secondary-color: #f59e0b; /* أصفر/برتقالي كهربائي */
-            --bg-color: #f8fafc;
-            --text-color: #1e293b;
-        }
-
         * {
             box-sizing: border-box;
             margin: 0;
@@ -22,25 +17,24 @@
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            padding-bottom: 30px;
+            background-color: #f5f7fb;
+            color: #333;
         }
 
-        /* الهيدر (رأس الصفحة) */
+        /* الهيدر الأزرق العلوي */
         .header {
-            background: linear-gradient(135deg, var(--primary-color), #0284c7);
+            background: linear-gradient(135deg, #0264b3, #0088cc);
             color: white;
             text-align: center;
             padding: 40px 20px;
-            border-bottom-left-radius: 25px;
-            border-bottom-right-radius: 25px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .header h1 {
-            font-size: 26px;
-            margin-bottom: 5px;
+            font-size: 28px;
+            margin-bottom: 10px;
         }
 
         .header p {
@@ -48,34 +42,28 @@
             opacity: 0.9;
         }
 
-        /* الحاوية الرئيسية */
-        .container {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
         /* أزرار الاتصال السريع */
-        .action-buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        .quick-actions {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
             gap: 15px;
-            margin-top: -15px;
-            margin-bottom: 25px;
         }
 
         .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            flex: 1;
             padding: 15px;
             border-radius: 15px;
+            text-align: center;
             text-decoration: none;
             color: white;
             font-weight: bold;
             font-size: 16px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             transition: transform 0.2s;
         }
 
@@ -83,141 +71,210 @@
             transform: scale(0.95);
         }
 
-        .btn-whatsapp {
-            background-color: #25D366;
-        }
+        .btn-call { background-color: #3b82f6; }
+        .btn-whatsapp { background-color: #22c55e; }
 
-        .btn-call {
-            background-color: #3b82f6;
-        }
-
-        /* بطاقة الموقع */
+        /* كارت الموقع الجغرافي */
         .location-card {
             background: white;
+            margin: 15px;
             padding: 20px;
             border-radius: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            margin-bottom: 25px;
-            border: 1px solid #e2e8f0;
             text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
-        .location-card i {
-            font-size: 32px;
+        .location-card i.map-icon {
+            font-size: 40px;
             color: #ef4444;
             margin-bottom: 10px;
         }
 
-        .btn-maps {
+        .location-card h2 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .location-card p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .btn-map {
+            background-color: #0f4c75;
+            color: white;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 10px;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
             text-decoration: none;
-            margin-top: 15px;
-            font-size: 14px;
+            font-weight: bold;
         }
 
-        /* أقسام الخدمات */
+        /* العناوين الجانبية */
         .section-title {
+            padding: 0 20px;
+            margin: 25px 0 15px 0;
             font-size: 18px;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-            border-right: 4px solid var(--secondary-color);
-            padding-right: 8px;
+            border-right: 4px solid #f97316;
+            padding-right: 10px;
         }
 
-        .services-grid {
+        /* شبكة الأقسام الرئيسية */
+        .categories-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
+            padding: 0 15px;
         }
 
-        .service-item {
+        .cat-card {
             background: white;
             padding: 20px;
             border-radius: 15px;
             text-align: center;
-            border: 1px solid #e2e8f0;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        .service-item i {
-            font-size: 28px;
-            color: var(--secondary-color);
+        .cat-card i {
+            font-size: 30px;
+            color: #f59e0b;
             margin-bottom: 10px;
         }
 
-        .service-item h3 {
-            font-size: 14px;
-            color: var(--text-color);
+        /* قسم المنتجات والأسعار الجديد */
+        .products-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 0 15px 30px 15px;
         }
 
-        /* الفوتر */
-        .footer {
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 120px;
+            background-color: #e5e7eb;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 10px;
             text-align: center;
-            margin-top: 30px;
+        }
+
+        .product-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #222;
+        }
+
+        .product-price {
+            font-size: 15px;
+            color: #22c55e;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .btn-order {
+            background-color: #22c55e;
+            color: white;
+            text-decoration: none;
             font-size: 12px;
-            color: #94a3b8;
+            padding: 8px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <!-- الهيدر -->
+    <!-- الهيدر الرئيسي -->
     <div class="header">
         <h1>مركز الإتقان</h1>
         <p>للصيانة المنزلية والتمديدات الصحية والكهربائية</p>
     </div>
 
-    <div class="container">
+    <!-- أزرار الاتصال المباشر والواتساب -->
+    <!-- يمكنك تعديل الأرقام لاحقاً لترتبط بحسابك مباشرة -->
+    <div class="quick-actions">
+        <a href="tel:0000000000" class="btn btn-call">
+            <i class="fa-solid fa-phone"></i> اتصال مباشر
+        </a>
+        <a href="https://wa.me/0000000000" class="btn btn-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i> واتساب
+        </a>
+    </div>
+
+    <!-- الموقع الجغرافي -->
+    <div class="location-card">
+        <i class="fa-solid fa-location-dot map-icon"></i>
+        <h2>موقعنا في إدلب</h2>
+        <p>إدلب المدينة - المنطقة الغربية</p>
+        <a href="#" class="btn-map">
+            <i class="fa-solid fa-location-arrow"></i> افتح الخريطة وتفضل بزيارتنا
+        </a>
+    </div>
+
+    <!-- الأقسام الرئيسية -->
+    <h3 class="section-title">خدماتنا وبضائعنا</h3>
+    <div class="categories-grid">
+        <a href="#" class="cat-card">
+            <i class="fa-solid fa-wrench"></i>
+            <p>تمديدات صحية</p>
+        </a>
+        <a href="#" class="cat-card">
+            <i class="fa-solid fa-lightbulb"></i>
+            <p>إنارة وكهرباء</p>
+        </a>
+    </div>
+
+    <!-- قسم عرض المنتجات الجديد -->
+    <h3 class="section-title">أحدث العروض والمنتجات</h3>
+    <div class="products-container">
         
-        <!-- أزرار التواصل السريع -->
-        <div class="action-buttons">
-            <a href="https://wa.me/963941924746" class="btn btn-whatsapp" target="_blank">
-                <i class="fab fa-whatsapp"></i> واتساب
-            </a>
-            <a href="tel:+963941924746" class="btn btn-call">
-                <i class="fas fa-phone-alt"></i> اتصال مباشر
-            </a>
-        </div>
-
-        <!-- بطاقة الموقع والدليلك إلينا -->
-        <div class="location-card">
-            <i class="fas fa-map-marked-alt"></i>
-            <h2>موقعنا في إدلب</h2>
-            <p style="margin-top: 5px; color: #64748b; font-size: 14px;">إدلب المدينة - المنطقة الغربية</p>
-            <a href="https://maps.app.goo.gl/YBYnAXLzLmjQ8jL86?g_st=aw" class="btn-maps" target="_blank">
-                <i class="fas fa-directions"></i> افتح الخريطة وتفضل بزيارتنا
-            </a>
-        </div>
-
-        <!-- أقسام المركز -->
-        <h2 class="section-title">خدماتنا وبضائعنا</h2>
-        <div class="services-grid">
-            <div class="service-item">
-                <i class="fas fa-wrench"></i>
-                <h3>تمديدات صحية</h3>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-lightbulb"></i>
-                <h3>إنارة وكهرباء</h3>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-tools"></i>
-                <h3>صيانة منزلية</h3>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-tags"></i>
-                <h3>عروض وتخفيضات</h3>
+        <!-- المنتج الأول -->
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1565814636199-ae8133055c1c?w=400" alt="سكونس إنارة" class="product-img">
+            <div class="product-info">
+                <div class="product-title">سكونس إنارة مميز</div>
+                <div class="product-price">150 TL</div>
+                <a href="https://wa.me/0000000000?text=أريد%20طلب%20سكونس%20الإنارة" class="btn-order">
+                    <i class="fa-brands fa-whatsapp"></i> اطلب الآن
+                </a>
             </div>
         </div>
 
-        <!-- الفوتر -->
-  <div class="footer">  
-            <p>جميع الحقوق محفوظة لـ مركز الإتقان © 2026</p>
+        <!-- المنتج الثاني -->
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400" alt="بخاخ مياه" class="product-img">
+            <div class="product-info">
+                <div class="product-title">بخاخ مياه ضغط عالي</div>
+                <div class="product-price">75 TL</div>
+                <a href="https://wa.me/0000000000?text=أريد%20طلب%20بخاخ%20المياه" class="btn-order">
+                    <i class="fa-brands fa-whatsapp"></i> اطلب الآن
+                </a>
+            </div>
         </div>
 
     </div>
